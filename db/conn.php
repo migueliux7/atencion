@@ -1,14 +1,14 @@
 <?php
    //LOCAL
-   $host = 'localhost:3307';
-    $db = 'attendance_db';
-    $user = 'root';
-    $pass = '';
+  // $host = 'localhost:3307';
+   // $db = 'attendance_db';
+   // $user = 'root';
+   // $pass = '';
     
-    // $host = 'remotemysql.com';
-    // $db = 'lcehMllQSX';
-    // $user = 'lcehMllQSX';
-    // $pass = 'fhlW1q7yA0';
+    $host = 'remotemysql.com';
+     $db = 'lcehMllQSX';
+     $user = 'lcehMllQSX';
+     $pass = 'fhlW1q7yA0';
 
     $charset = 'utf8mb4';
     //PROD
