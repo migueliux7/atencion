@@ -8,10 +8,10 @@
 
         }
 
-        public function insert($fname, $lname, $dob, $email, $contact, $specialty){
+        public function insert($fname, $lname, $dob, $email, $contact, $specialty, $avatar_path){
             try {
-                $sql = "insert into attendee (firstname, lastname, birthday, email_address, phone_number, specialty_id )
-                values(:fname, :lname,:dob, :email, :contact, :specialty)";
+                $sql = "INSERT into attendee (firstname, lastname, birthday, email_address, phone_number, specialty_id, avatar_path )
+                values(:fname, :lname,:dob, :email, :contact, :specialty, :avatar_path)";
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindparam(':fname', $fname);
                 $stmt->bindparam(':lname', $lname);
@@ -19,6 +19,7 @@
                 $stmt->bindparam(':email', $email);
                 $stmt->bindparam(':contact', $contact);
                 $stmt->bindparam(':specialty', $specialty);
+                $stmt->bindparam(':avatar_path', $avatar_path);
                 //Ejecuta el statement
                 $stmt->execute();
                 return true;
@@ -42,6 +43,19 @@
             try{
                 $sql = "select * from specialties";
                 $result = $this->db->query($sql);
+                return $result;
+            } catch(PDOException $th){
+                echo $th->getMessage();
+            }
+        }
+
+        public function getSpecialtyById($id){
+            try{
+                $sql = "select * from specialties where specialty_id = :id";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindparam(':id', $id);
+                $stmt->execute();
+                $result = $stmt->fetch();
                 return $result;
             } catch(PDOException $th){
                 echo $th->getMessage();

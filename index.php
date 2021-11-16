@@ -15,7 +15,7 @@
             direccion de enaul
             numero de contacto
         -->
-<form method="post" action="success.php">
+<form method="post" action="success.php" enctype="multipart/form-data">
   <div class="mb-3">
     <label for="firstname" class="form-label">Primer Nombre</label>
     <input required type="text" class="form-control" id="firstname" name="firstname" placeholder="Ingresa tu nombre">
@@ -42,12 +42,19 @@
   <div class="mb-3">
     <label for="contacto" class="form-label">Numero de contacto</label>
     <input required type="text" class="form-control" id="contacto" name="contacto" placeholder="Ingresa tu numero de contacto">
-    
+    <div id="phoneHelp" class="form-text">We'll never share your contacto with anyone else.</div>
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email address</label>
     <input required type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="custom-file">
+    
+    <input type="file" accept="image/*"  class="custom-file-input" id="avatar" name="avatar">
+    <label class="custom-file-label" for="avatar">Subir imagen (Opcional)</label>
+    <small id="avatar" class="form-text text-danger">La imagen es opcional</label>
+    
   </div>
  
   <button type="submit" name="submit" class="btn btn-primary">Submit</button>
